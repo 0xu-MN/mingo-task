@@ -12,7 +12,7 @@ import {
 
 function AppFooter() {
     const sheetItems = [
-        { label: "이용약관", title: "이용약관", description: "이용약관내용" },
+        { label: "이용약관", title: "서비스 이용약관", description: "이용약관내용" },
         { label: "개인정보처리방침", title: "개인정보처리방침", description: "개인정보처리방침내용" },
         { label: "클래스론칭문의", title: "클래스론칭문의", description: "클래스론칭문의" },
     ]
@@ -46,11 +46,19 @@ function AppFooter() {
                                 <SheetTrigger className="cursor-pointer hover:text-gray-400">
                                     {item.label}
                                 </SheetTrigger>
-                                <SheetContent>
-                                    <SheetHeader>
-                                        <SheetTitle>{item.title}</SheetTitle>
-                                        <SheetDescription>{item.description}</SheetDescription>
+                                <SheetContent 
+                                    side="right"
+                                    className="bg-[#171717] text-white border-zinc-800 w-full max-w-none p-0 h-screen top-0 right-0 flex flex-col z-[200]"
+                                    style={{ marginTop: 0, height: '100vh', top: 0 }}
+                                >
+                                    <SheetHeader className="p-6 border-b border-zinc-800 flex-shrink-0">
+                                        <SheetTitle className="text-xl font-bold text-white">{item.title}</SheetTitle>
                                     </SheetHeader>
+                                    <div className="flex-1 p-6 overflow-y-auto">
+                                        <SheetDescription className="text-base leading-relaxed text-white whitespace-pre-wrap">
+                                            {item.description}
+                                        </SheetDescription>
+                                    </div>
                                 </SheetContent>
                             </Sheet>
                             {index < sheetItems.length - 1 && (
