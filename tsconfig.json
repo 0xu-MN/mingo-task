@@ -3,11 +3,11 @@
   "references": [
     { "path": "./tsconfig.app.json" },
     { "path": "./tsconfig.node.json" }
-  ], // <--- references 배열이 여기서 닫혀야 합니다.
-  "compilerOptions": { // <--- compilerOptions는 이제 최상위 속성입니다.
+  ], 
+  "compilerOptions": { 
     "baseUrl": ".",
     "paths": {
       "@/*": ["./src/*"]
     }
-  } // <--- compilerOptions 객체가 여기서 닫혀야 합니다.
+  } 
 }

@@ -28,7 +28,7 @@ function AppFooter() {
   return (
     <footer className="w-full flex flex-col items-center justify-between px-8 pb-24 bg-[#171717] text-white">
         <div className="w-full max-w-[1328px] py-10">
-            <div className="flex justify-between pb-8">
+            <div className="flex items-start justify-between   pb-8">
                 <div className="flex flex-col gap-4">
                     <div className="flex flex-col justify-start">
                         <h3 className="text-xl font-bold">나의 학습 여정이,</h3> 
@@ -87,4 +87,4 @@ function AppFooter() {
   );
 }
 
-export default AppFooter;
+export {AppFooter};

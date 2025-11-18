@@ -1,5 +1,6 @@
-// src/page/topic/Topicinsight.tsx (기존 그대로)
-import SidebarForm from "../form/SidebarForm";
+// src/page/topic/Topicinsight.tsx
+
+import SidebarForm from "../form/sidebarform";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
 import { Card } from "@/components/ui/card";
@@ -12,14 +13,11 @@ function Topicinsight() {
     { id: 3, title: "프론트엔드 개발 트렌드", views: 1200 },
   ];
 
-  // activeCategory와 onSelectCategory는 부모에서 전달받거나 기본값 사용
-  const [activeCategory, setActiveCategory] = React.useState('all');
-
   return (
     <div className="flex w-full min-h-screen bg-black text-white">
       {/* 사이드바 */}
       <aside className="hidden lg:block w-64 mr-8 flex-shrink-0 z-10 px-4">
-        <SidebarForm activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
+        <SidebarForm />
       </aside>
 
       {/* 메인 콘텐츠 */}

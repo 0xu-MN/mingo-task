@@ -1,9 +1,9 @@
-import React from 'react';
-import { Separator } from "@/components/ui/separator";
+import React from 'react'; 
+import { Separator } from "@/components/ui/separator"; 
 import {
-  NavigationMenu,
-  NavigationMenuItem,
-  NavigationMenuList,
+    NavigationMenu,
+    NavigationMenuItem,
+    NavigationMenuList,
 } from "@/components/ui/navigation-menu";
 import { Menu } from 'lucide-react';
 import {
@@ -13,12 +13,13 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet";
+import { Link } from "react-router"; // ← 변경: react-router에서
 
 const menuItems = [
-  { label: "클래스", href: "/classes", icon: "" },
-  { label: "배움노트", href: "/notes", icon: "" },
-  { label: "토픽 인사이트", href: "/topicinsight", icon: "" },
-  { label: "밍랩", href: "/minglab", icon: "" },
+  { label: "클래스", href: "/classes" },
+  { label: "배움노트", href: "/notes" },
+  { label: "토픽 인사이트", href: "/topicinsight" },
+  { label: "밍랩", href: "/minglab" },
 ];
 
 function AppHeader() {
@@ -26,20 +27,20 @@ function AppHeader() {
     <header className="sticky top-0 z-[100] w-full flex justify-center items-center h-12 px-8 text-white bg-[#171717]">
       <div className="w-full max-w-[1328px] flex justify-between items-center">
         <div className="flex items-center gap-10">
-          <a href="/" className="flex items-center gap-2 cursor-pointer no-underline">
+          <Link to="/" className="flex items-center gap-2 cursor-pointer no-underline"> 
             <p className="text-orange-500 text-2xl font-bold">Mingo</p>
-          </a>
+          </Link>
           <NavigationMenu className="hidden md:flex items-center">
             <NavigationMenuList>
               {menuItems.map((item, index) => (
                 <React.Fragment key={item.label}>
                   <NavigationMenuItem>
-                    <a
-                      href={item.href}
+                    <Link
+                      to={item.href}
                       className="font-medium text-[15px] text-white p-2 cursor-pointer no-underline hover:text-orange-400 transition-colors"
                     >
                       {item.label}
-                    </a>
+                    </Link>
                   </NavigationMenuItem>
                   {(index === 1 || index === 2) && (
                     <Separator
@@ -55,23 +56,23 @@ function AppHeader() {
         </div>
 
         <div className="flex items-center gap-4">
-          <a
-            href="/login"
+          <Link
+            to="/login" 
             className="text-white font-medium text-[15px] cursor-pointer no-underline hover:text-orange-400 transition-colors"
           >
             로그인
-          </a>
+          </Link>
           <Separator
             orientation="vertical"
             className="h-4 hidden md:block"
             style={{ backgroundColor: "#6B7280", width: "1px" }}
           />
-          <a
-            href="/about"
+          <Link
+            to="/about"
             className="hidden md:block text-white font-medium text-[15px] cursor-pointer no-underline hover:text-orange-400 transition-colors"
           >
             우리가 하는 일
-          </a>
+          </Link>
 
           <Sheet>
             <SheetTrigger className="md:hidden">
@@ -103,25 +104,25 @@ function AppHeader() {
               <div className="flex-1 px-6 py-6 overflow-y-auto">
                 <div className="flex flex-col gap-5">
                   {menuItems.map((item) => (
-                    <a
+                    <Link
                       key={item.label}
-                      href={item.href}
+                      to={item.href} 
                       className="flex items-center gap-3 text-white text-base font-medium cursor-pointer no-underline hover:text-orange-400 transition-colors"
                     >
-                      <span className="text-xl">{item.icon}</span>
+                      <span className="text-xl">{item.icon || ""}</span>
                       <span>{item.label}</span>
-                    </a>
+                    </Link>
                   ))}
                 </div>
               </div>
 
               <div className="p-6 flex-shrink-0">
-                <a
-                  href="/login"
+                <Link
+                  to="/login"
                   className="w-full py-3 bg-blue-600 hover:bg-blue-700 text-white text-center rounded-full font-semibold text-base cursor-pointer no-underline block transition-colors"
                 >
                   로그인
-                </a>
+                </Link>
               </div>
             </SheetContent>
           </Sheet>
@@ -131,4 +132,4 @@ function AppHeader() {
   );
 }
 
-export default AppHeader;
+export { AppHeader };
