@@ -1,4 +1,4 @@
-// src/page/topic/Topicinsight.tsx (기존 그대로)
+import React from 'react';
 import SidebarForm from "../form/SidebarForm";
 import { Input } from "@/components/ui/input";
 import { Search } from "lucide-react";
@@ -12,20 +12,19 @@ function Topicinsight() {
     { id: 3, title: "프론트엔드 개발 트렌드", views: 1200 },
   ];
 
-  // activeCategory와 onSelectCategory는 부모에서 전달받거나 기본값 사용
   const [activeCategory, setActiveCategory] = React.useState('all');
 
   return (
-    <div className="flex w-full min-h-screen bg-black text-white">
+    <div className="flex w-full h-full bg-black text-white pt-4">
       {/* 사이드바 */}
-      <aside className="hidden lg:block w-64 mr-8 flex-shrink-0 z-10 px-4">
+      <aside className="hidden lg:block w-64 mr-8 flex-shrink-0 z-10">
         <SidebarForm activeCategory={activeCategory} onSelectCategory={setActiveCategory} />
       </aside>
 
       {/* 메인 콘텐츠 */}
-      <main className="flex-1 px-4 lg:px-0 overflow-y-auto bg-black">
+      <main className="flex-1 pr-4 lg:pr-0 overflow-y-auto bg-black">
         {/* 검색 */}
-        <div className="sticky top-0 z-30 pb-6 bg-black pt-4 flex items-center gap-2">
+        <div className="sticky top-0 z-30 pb-6 bg-black flex items-center gap-2">
           <Search className="w-5 h-5 text-gray-400" />
           <Input
             placeholder="원하는 키워드를 검색하세요, 분석 결과를 보여드릴게요!"
@@ -40,7 +39,7 @@ function Topicinsight() {
             {hotTopics.map((topic) => (
               <Card
                 key={topic.id}
-                className="p-4 bg-gray-800/50 border border-gray-700 hover:bg-gray-800 transition-colors"
+                className="p-4 bg-gray-800/50 border border-gray-700 hover:bg-gray-800 transition-colors cursor-pointer"
               >
                 <div className="flex justify-between">
                   <span>{topic.title}</span>
@@ -52,7 +51,7 @@ function Topicinsight() {
         </section>
 
         {/* LOADING EXAMPLE */}
-        <section className="space-y-3">
+        <section className="space-y-3 pb-6">
           {[1, 2, 3].map((i) => (
             <Skeleton key={i} className="h-16 w-full bg-gray-700" />
           ))}

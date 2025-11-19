@@ -26,17 +26,21 @@ function AppFooter() {
     ]
 
   return (
-    <footer className="w-full flex flex-col items-center justify-between px-8 pb-24 bg-[#171717] text-white">
-        <div className="w-full max-w-[1328px] py-10">
-            <div className="flex items-start justify-between   pb-8">
-                <div className="flex flex-col gap-4">
-                    <div className="flex flex-col justify-start">
-                        <h3 className="text-xl font-bold">나의 학습 여정이,</h3> 
-                        <h3 className="text-xl font-bold">나만의 창작으로 이어지는 플랫폼</h3> 
+    <footer className="w-full flex items-center justify-center p-6 pb-20 bg-[#121212]">
+        <div className="w-full max-w-[1328px] flex flex-col items-center justify-center gap-6w-full max-w-[1328px] py-10">
+            <div className="w-full flex flex-col items-start justify-between gap-6 md:flex-row">
+                <div className="w-full flex items-start justify-between gap-4 md:w-fit md:flex-col">
+                    <div className="flex flex-col ">
+                        <h3 className="scroll-m-20 text-base md:text-2xl font-semibold tracking-tight">나의 학습 여정이,</h3> 
+                        <h3 className="scroll-m-20 text-base md:text-2xl font-semibold tracking-tight">나만의 창작으로 이어지는 플랫폼</h3> 
                     </div>
-                    <div className="flex gap-3">
-                        <Button variant="outline" size="icon">YT</Button>
-                        <Button variant="outline" size="icon">TH</Button> 
+                    <div className="flex items-center gap-2">
+                         <Button variant="secondary" size={"icon"}>
+                             <img src="/icons/youtube.svg" alt="@YOUTUBE" className="w-6" />
+                        </Button>
+                        <Button variant="secondary" size={"icon"}>
+                            <img src="/icons/spotify.svg" alt="@SPOTIFY" className="w-5.5" />
+                        </Button>
                     </div>
                 </div>
                 <div className="flex items-center gap-4 text-[15px]">
@@ -69,16 +73,22 @@ function AppFooter() {
                 </div>
             </div>
             <Separator className="w-full" style={{ backgroundColor: '#374151' }} />
-            <div className="flex justify-between pt-8 text-sm">
-                <div className="flex flex-col gap-2">
-                    <h3 className="text-base font-bold mb-1">고객센터</h3>
-                    <p className="text-gray-400">평일 오전 9시 ~ 오후 6시</p>
-                    <p className="text-gray-400">문의: mingoteam@naver.com</p>
+            <div className="w-full flex flex-col items-start gap-20 md:flex-row md:justify-between">
+                <div className="flex flex-col gap-4">
+                    <h3 className="text-base font-semibold">고객센터</h3>
+                    <div className="flex flex-col gap-13">
+                        <div className="flex flex-col gap-1">
+                            <p>평일 오전 9시 ~ 오후 6시</p>
+                            <p>문의 : mingoteam@naver.com</p>
+                        </div>
+                        <p>© Mingo Team all rights reserved</p>
+                    </div>
+                    
                 </div>
-                <div className="flex flex-col gap-2 text-left">
-                    <h3 className="text-base font-bold mb-1">사업자 정보</h3>
+                <div className="flex flex-col gap-4 text-left">
+                    <h3 className="text-base font-semibold">사업자 정보</h3>
                     {businessInformation.map((item, index) => (
-                        <p key={index} className="text-gray-400">{item.label} {item.value}</p>
+                        <p key={index} className="flex flex-col gap-1">{item.label} {item.value}</p>
                     ))}
                 </div>
             </div>

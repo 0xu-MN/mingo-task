@@ -24,9 +24,9 @@ const menuItems = [
 
 function AppHeader() {
   return (
-    <header className="sticky top-0 z-[100] w-full flex justify-center items-center h-12 px-8 text-white bg-[#171717]">
-      <div className="w-full max-w-[1328px] flex justify-between items-center">
-        <div className="flex items-center gap-10">
+    <header className="sticky top-0 z-[100] w-full h-12 min-h-12 flex items-center justify-center bg-[#121212] px-6">
+      <div className="w-full max-w-[1328px] flex h-full items-center justify-between">
+        <div className="flex items-center gap-4">
           <Link to="/" className="flex items-center gap-2 cursor-pointer no-underline"> 
             <p className="text-orange-500 text-2xl font-bold">Mingo</p>
           </Link>
