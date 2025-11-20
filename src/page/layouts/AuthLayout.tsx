@@ -4,22 +4,20 @@ import Orb from "@/components/Orb";
 
 export default function AuthLayout() {
   return (
-    <div className="relative flex flex-col min-h-screen bg-black overflow-hidden">
+    <div className="fw-full h-screen flex flex-col">
       <AppHeader />
 
       
-      <main className="relative w-full flex-1 flex justify-center items-center mt-10 mb-10 py-20">
-        
-        <div className="absolute inset-0 flex items-center justify-center pointer-events-none z-0">
-          <div className="w-[900px] h-[900px]">
+      <div className="w-full flex-1 flex justify-center mt-12 ">
+
+          <main className="absolute w-full max-w-sm z-10 flex items-center justify-center top-24 translate-x-4 translate-y-40">
+            <Outlet />
+          </main>
+          <div className="ablsolute top-16 left-16 translate-x-4 -translate-y-4 w-[900px] h-[900px] z-[1] items-center justify-center ">
             <Orb hoverIntensity={0.3} rotateOnHover={false} hue={240} />
           </div>
-        </div>
 
-        <div className="relative w-full max-w-md z-10">
-          <Outlet />
-        </div>
-      </main>
+      </div>
 
       <AppFooter />
     </div>

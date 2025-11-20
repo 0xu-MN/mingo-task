@@ -1,4 +1,4 @@
-// src/page/auth/Signuppage.tsx
+
 import { SignupForm } from "@/page/form/signup-form";
 
 export default function Signuppage() {

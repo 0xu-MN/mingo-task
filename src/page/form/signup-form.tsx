@@ -1,13 +1,7 @@
 import { useNavigate } from "react-router"; 
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import {Card,CardContent,CardDescription,CardHeader,CardTitle,} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { Checkbox } from "@/components/ui/checkbox";
 import { Separator } from "@/components/ui/separator";
@@ -52,10 +46,8 @@ const formSchema = z
 type FormValues = z.infer<typeof formSchema>;
 
 
-export function SignupForm({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
+export default function SignupPage() {
+  const navigate = useNavigate(); {
 
     const form = useForm<FormValues>({
         resolver: zodResolver(formSchema),

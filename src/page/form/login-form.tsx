@@ -1,13 +1,7 @@
+import { Link } from "react-router"; 
 import { useNavigate } from "react-router"; 
-import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
+import {Card,CardContent,CardDescription,CardHeader,CardTitle} from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { toast } from "sonner"; 
 import { zodResolver } from "@hookform/resolvers/zod";
@@ -24,12 +18,7 @@ const formSchema = z.object({
 
 type FormValues = z.infer<typeof formSchema>;
 
-
-export function LoginForm({
-  className,
-  ...props
-}: React.ComponentProps<"div">) {
-
+export function LoginForm() {
   const form = useForm<FormValues>({
       resolver: zodResolver(formSchema),
       defaultValues: {
@@ -44,10 +33,9 @@ export function LoginForm({
     console.log("로그인 시도 데이터:", values);
   };
 
-
   return (
-    <div className={cn("flex flex-col gap-6", className)} {...props}>
-      <Card className="border-0 bg-transparent/30 backdrop-blur-xl shadow-2xl">
+    <div className="w-full max-w-[1328px] h-full flex items-center justify-center">
+      <Card className="w-full max-w-sm border-0 bg-transparent ">
         <CardHeader className="text-start">
           <CardTitle className="text-xl font-bold text-white">로그인</CardTitle>
           <CardDescription className="text-gray-400">
@@ -133,8 +121,15 @@ export function LoginForm({
                   로그인
                 </Button>
                 <div className="text-center text-gray-400">
-                  계정이 없으신가요? <a href="/signup" className="text-white cursor-pointer hover:underline">회원가입</a>
+                  계정이 없으신가요? 
+                  <Link 
+                    to="/signup" 
+                    className="text-white cursor-pointer hover:underline ml-1"
+                  >
+                    회원가입
+                  </Link>
                 </div>
+                
               </div>
             </form>
           </Form>
